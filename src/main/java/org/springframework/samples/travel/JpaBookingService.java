@@ -1,5 +1,6 @@
 package org.springframework.samples.travel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -31,10 +32,11 @@ public class JpaBookingService implements BookingService {
 	@SuppressWarnings("unchecked")
 	public List<Booking> findBookings(String username) {
 		if (username != null) {
-			return em
-					.createQuery(
-							"select b from Booking b where b.user.username = :username order by b.checkinDate")
-					.setParameter("username", username).getResultList();
+			return new ArrayList<Booking>();
+//			return em
+//					.createQuery(
+//							"select b from Booking b where b.user.username = :username order by b.checkinDate")
+//					.setParameter("username", username).getResultList();
 		} else {
 			return null;
 		}
